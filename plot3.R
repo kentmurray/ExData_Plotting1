@@ -3,7 +3,7 @@ datain <- read.table("household_power_consumption.txt", header=TRUE, sep=";", co
 data <- subset(datain, Date == "1/2/2007" | Date == "2/2/2007")
 data <- transform(data, Date = strptime(paste(data$Date, data$Time), "%d/%m/%Y %H:%M:%S"))
 rm(datain)
-
+ 
 png(filename = "plot3.png", width = 480, height = 480)
 with(data, {
 	plot(Date, Sub_metering_1, xlab="", ylab="Energy sub metering", yaxp=c(0,40,4), type="n")
